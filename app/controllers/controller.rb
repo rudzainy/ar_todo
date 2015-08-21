@@ -52,7 +52,7 @@ class Controller
         puts "Item #{n+1} does not exist" if flag == false
       when "list"
       else
-        puts "Unknown command"
+        puts "Unknown command!"
     end
   end
 end
