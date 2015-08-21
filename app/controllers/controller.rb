@@ -1,4 +1,6 @@
 require_relative '../../config/application'
+# require_relative '../../todo'
+# require_relative '../view/display'
 
 class Controller
   def process_input(input)
@@ -9,19 +11,20 @@ class Controller
 
     case command
       when "add"
-        List.create(item: input.join(" "), status: false)
-
-        puts "Added #{input.join(" ")} into the list"
+        text = input.join(" ")
+        List.create(item: text, status: false)
+        screen.add_message(text)
       when "delete"
         n = input.first.to_i-1
         all_items.each_with_index do |item, count|
           if count == n
+            text = item.item
             item.delete
             flag = true
-            puts "Item deleted"
+            screen.delete_message(text)
           end
         end
-        puts "Item #{n+1} does not exist" if flag == false
+        screen.item_doesnt_exist(n+1) if flag == false
       when "edit"
         n = input.first.to_i-1
         all_items.each_with_index do |item, count|
@@ -38,8 +41,11 @@ class Controller
         n = input.first.to_i-1
         all_items.each_with_index do |item, count|
           if count == n
-            p item.status
-            item.toggle(:status)
+            if item.status == true
+              item.update(status: false)
+            else
+              item.update(status: true)
+            end
             flag = true
           end
         end

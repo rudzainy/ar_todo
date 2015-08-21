@@ -1,8 +1,8 @@
 require_relative '../../config/application'
+# require_relative '../controllers/controller.rb'
+# require_relative '../../todo'
 
 class Display
-  def self.initialize
-  end
 
   def display_list(list)
     all_items = List.all
@@ -24,5 +24,17 @@ class Display
     puts "Commands: list, add, delete, edit, toggle\n\n"
     display_list(:items)
     print "\n============================\n"
+  end
+
+  def add_message(text)
+    puts "Added #{text} into the list"
+  end
+
+  def delete_message(text)
+    puts "#{text}deleted from the list"
+  end
+
+  def item_doesnt_exist(number)
+    puts "Item #{number} does not exist"
   end
 end
