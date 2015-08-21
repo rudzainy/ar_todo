@@ -7,14 +7,14 @@ class Display
   def display_list(list)
     all_items = List.all
     counter = 0
-    all_items.each do
-      if :status == true
+    all_items.each do |item|
+      if item.status == true
         status = "[x]"
       else
         status = "[ ]"
       end
 
-      p "#{counter+1}. #{status} #{:text}"
+      p "#{counter+1}. #{status} #{item.item}"
       counter += 1
     end
   end
