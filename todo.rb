@@ -12,14 +12,10 @@ require_relative 'app/view/display'
 # toggle : Item#toggle
 # list : Display#display_list
 
-
-display = Display.new
-terminal = Controller.new
-
 input = ARGV
 
 clear_screen!
 move_to_home!
 
-terminal.process_input(input, display)
-display.interface
+Controller.process_input(input)
+Display.interface

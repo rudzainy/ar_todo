@@ -4,10 +4,9 @@ require_relative '../../config/application'
 
 class Display
 
-  def display_list(list)
-    all_items = List.all
+  def self.display_list
     counter = 0
-    all_items.each do |item|
+    List.all.each do |item|
       if item.status == true
         status = "[x]"
       else
@@ -19,11 +18,11 @@ class Display
     end
   end
 
-  def interface
-    print "\n= Yor Kul Tu Du Lis ========\n"
+  def self.interface
+    print "\n= Yor Kul Tu Du Lis ===========================\n\n"
     puts "Commands: list, add, delete, edit, toggle\n\n"
-    display_list(:items)
-    print "\n============================\n"
+    display_list
+    print "\n================================ ( ^ o ^ ) ====\n"
   end
 
   def add_message(text)
