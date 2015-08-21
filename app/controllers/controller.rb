@@ -9,13 +9,16 @@ class Controller
 
     case command
       when "add"
-        List.create(item: input.join(" "))
+        List.create(item: input.join(" "), status: false)
+
+        puts "Added #{input.join(" ")} into the list"
       when "delete"
         n = input.first.to_i-1
         all_items.each_with_index do |item, count|
           if count == n
             item.delete
             flag = true
+            puts "Item deleted"
           end
         end
         puts "Item #{n+1} does not exist" if flag == false
@@ -27,6 +30,7 @@ class Controller
             text = input.join(" ")
             item.update(item: text)
             flag = true
+            puts "Edited item number #{n+1} to #{text}"
           end
         end
         puts "Item #{n+1} does not exist" if flag == false
@@ -34,11 +38,13 @@ class Controller
         n = input.first.to_i-1
         all_items.each_with_index do |item, count|
           if count == n
-            item.status.toggle
-          else
-            puts "Item #{n+1} does not exist"
+            p item.status
+            item.toggle(:status)
+            flag = true
           end
         end
+        puts "Item #{n+1} does not exist" if flag == false
+      when "list"
       else
         puts "Unknown command"
     end

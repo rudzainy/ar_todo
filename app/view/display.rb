@@ -21,7 +21,7 @@ class Display
 
   def interface
     print "\n= Yor Kul Tu Du Lis ========\n"
-    puts "Commands: add, delete, edit, toggle\n\n"
+    puts "Commands: list, add, delete, edit, toggle\n\n"
     display_list(:items)
     print "\n============================\n"
   end
