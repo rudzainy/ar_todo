@@ -31,10 +31,23 @@ class Display
   end
 
   def delete_message(text)
-    puts "#{text}deleted from the list"
+    puts "#{text} deleted from the list"
+  end
+
+  def edit_message(number, text)
+    puts "Edited item number #{number} to #{text}"
+  end
+
+  def toggle_message(flag)
+    puts "Item unchecked!" if flag == 0
+    puts "Item checked!" if flag == 1
   end
 
   def item_doesnt_exist(number)
     puts "Item #{number} does not exist"
+  end
+
+  def unknown_command_message
+    puts "Unknown command!"
   end
 end

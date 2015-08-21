@@ -13,7 +13,7 @@ require_relative 'app/view/display'
 # list : Display#display_list
 
 
-screen = Display.new
+display = Display.new
 terminal = Controller.new
 
 input = ARGV
@@ -21,5 +21,5 @@ input = ARGV
 clear_screen!
 move_to_home!
 
-terminal.process_input(input)
-screen.interface
+terminal.process_input(input, display)
+display.interface
