@@ -20,14 +20,16 @@ class Controller
         end
         puts "Item #{n+1} does not exist" if flag == false
       when "edit"
-          n = input.first.to_i-1
-        if (n <= all_items.items.size)
-          input.shift
-          text = input.join(" ")
-          list.edit_item(n, text)
-        else
-          puts "Item #{n} does not exist"
+        n = input.first.to_i-1
+        all_items.each_with_index do |item, count|
+          if count == n
+            input.shift
+            text = input.join(" ")
+            item.update(item: text)
+            flag = true
+          end
         end
+        puts "Item #{n+1} does not exist" if flag == false
       when "toggle"
         n = input.first.to_i-1
         all_items.each_with_index do |item, count|
