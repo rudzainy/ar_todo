@@ -1,15 +1,21 @@
 require_relative '../../config/application'
 
 class Display
+  def self.initialize
+  end
+
   def display_list(list)
-    list.each_with_index do |element, i|
-      if (element.done)
+    all_items = List.all
+    counter = 0
+    all_items.each do
+      if status: == true
         status = "[x]"
       else
         status = "[ ]"
       end
 
-      p "#{i+1}. #{status} #{element.text}"
+      p "#{counter+1}. #{status} #{:text}"
+      counter += 1
     end
   end
 

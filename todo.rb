@@ -1,5 +1,7 @@
 require_relative 'config/application'
 require_relative 'lib/util'
+require_relative 'app/controllers/controller'
+require_relative 'app/view/display'
 
 puts "Put your application code in #{File.expand_path(__FILE__)}"
 
@@ -10,15 +12,17 @@ puts "Put your application code in #{File.expand_path(__FILE__)}"
 # toggle : Item#toggle
 # list : Display#display_list
 
-session = Database.new
-# screen = Display.new
-# terminal = Controller.new
+# session = Database.new
+screen = Display.new
+terminal = Controller.new
 # list = List.new(database.memory)
 input = ARGV
 
 clear_screen!
 move_to_home!
 
-Controller.process_input(input)
-Display.interface
+terminal.process_input(input)
+screen.interface
 # session.write(list)
+
+
