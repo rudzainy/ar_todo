@@ -8,7 +8,7 @@ class Display
     all_items = List.all
     counter = 0
     all_items.each do
-      if status: == true
+      if :status == true
         status = "[x]"
       else
         status = "[ ]"
