@@ -14,13 +14,13 @@ class Display
         status = "[ ]"
       end
 
-      p "#{counter+1}. #{status} #{item.item}"
+      puts "#{counter+1}. #{status} #{item.item}"
       counter += 1
     end
   end
 
   def interface
-    print "\n== ToDo List ===============\n"
+    print "\n= Yor Kul Tu Du Lis ========\n"
     puts "Commands: add, delete, edit, toggle\n\n"
     display_list(:items)
     print "\n============================\n"
