@@ -7,7 +7,7 @@ class Display
   def self.display_list
     List.all.each_with_index do |item, index|
       if item.status == true
-        status = "[x]"
+        status = "[✔]"
       else
         status = "[ ]"
       end
